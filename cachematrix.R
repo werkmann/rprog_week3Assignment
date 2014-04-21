@@ -1,9 +1,9 @@
 ## Documentation cachematrix.R
-## This file contains functions to compute and cache the inverse of a matrix. Caching can save time if the inverse has to be computed several times. 
-## To use this functionality, use your own matrix object and create a cachable matrix from it using makeCacheMatrix(). This new object
-## can now be used in repeated calls to cacheSolve() to take advantage of the caching behaviour.
+## This file contains functions to compute and cache the inverse of an invertible square matrix. Caching can save time if the inverse has to be computed several times. 
+## To use this functionality, Create a cachable matrix m using makeCacheMatrix(). You can either use your own matrix object as a parameter here,
+## or call m$set() later. In any case, this new object can now be used in repeated calls to cacheSolve() to take advantage of the caching behaviour.
 
-## Create a cachable matrix object from the given R matrix. Used in tandem with cacheSolve(). Works if x is an invertible square matrix. 
+## Create a cachable matrix object from the given R matrix, default. Used in tandem with cacheSolve().
 makeCacheMatrix <- function(x = matrix()) {
 
   ## The methods below can refer to the variable 'inverse' because it is visible in their lexical scope.
