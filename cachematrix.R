@@ -7,7 +7,7 @@
 makeCacheMatrix <- function(x = matrix()) {
 
   ## The methods below can refer to the variable 'inverse' because it is visible in their lexical scope.
-  ## It will the inverse of the given matrix x after the first call to cacheSolve()
+  ## It will hold the inverse of the matrix x after the first call to cacheSolve()
   inverse <- NULL 
   
   ## set a new matrix to be used by subsequent calls by the rest of the functions.
@@ -29,8 +29,9 @@ makeCacheMatrix <- function(x = matrix()) {
 ## This function returns the inverse of the given cachable matrix. For the first call the inverse is computed, subsequent calls return
 ## the cached matrix from the first call. Use makeCacheMatrix() to get a cachable matrix.
 cacheSolve <- function(x, ...) {
-        ## Return a matrix that is the inverse of 'x'
-  inv <- x$getInverse()
+        
+  
+  inv <- x$getInverse() # see if someting is in cache, otherwise compute the inverse
   if(!is.null(inv)) {
     message("getting cached data")
     return(inv)
